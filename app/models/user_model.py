@@ -1,5 +1,4 @@
 from app.exception.email_already_exists import EmailAlreadyExistsError
-from app.exception.wrong_type import WrongType
 from app.services.json_services import read_json, write_json
 from app.services.user_services import check_email_exists, check_type
 
@@ -10,8 +9,7 @@ class User:
 	def __init__(self, email: str, nome: str) -> None:
 		self.email = check_type(email, "email").lower()
 		self.nome = check_type(nome, "nome").title()
-		self.id = len(read_json(self.file_name))
-		print(email)
+		self.id = len(read_json(self.file_name)["data"]) + 1
 	
 	@classmethod
 	def get_users(cls):

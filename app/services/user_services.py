@@ -2,7 +2,7 @@ from app.exception.wrong_type import WrongType
 from app.services.json_services import read_json
 
 def check_email_exists(path: str, new_email: str):
-	user_list = read_json(path)
+	user_list = read_json(path)["data"]
 	
 	for email in user_list:
 		if new_email == email["email"]:

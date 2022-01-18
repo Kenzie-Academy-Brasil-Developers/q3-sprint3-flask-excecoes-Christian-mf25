@@ -23,9 +23,8 @@ def create_new_user():
 
     except WrongType as e:
         return {
-            "wrong fields": [
+            "wrong fields":
                 {
                     e.type_request: e.wrong
                 }
-            ]
         }, e.code
